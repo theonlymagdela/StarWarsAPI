@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="mainPage">
+        <a class="boxIn" href="{{ url_for('films_all') }}"><div class="box"><img src="/static/img/films.jpg" width="200" alt=""/><p>Films</p></div></a>
+        <a class="boxIn" href="/residents/1"><div class="box"><img src="/static/img/characters.jpg" width="200" alt=""/><p>Residents</p></div></a>
+        <a class="boxIn" href="/planets/1"><div class="box"><img src="/static/img/planets.jpg" width="200" alt=""/><p>Planets</p></div></a>
+        <a class="boxIn" href="{{ url_for('still_fighting') }}"><div class="box"><img src="/static/img/species.jpg" width="200" alt=""/><p>Species</p></div></a>
+        <a class="boxIn" href="{{ url_for('still_fighting') }}"><div class="box"><img src="/static/img/starships.jpg" width="200" alt=""/><p>Starships</p></div></a>
+        <a class="boxIn" href="{{ url_for('still_fighting') }}"><div class="box"><img src="/static/img/vehicles.jpg" width="200" alt=""/><p>Vehicles</p></div></a>
+        <a class="boxIn" href="{{ url_for('still_fighting') }}"><div class="box"><img src="/static/img/gallery.jpg" width="200" alt=""/><p>Gallery</p></div></a>
+    </div>
+{% endblock %}

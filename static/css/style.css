@@ -1,0 +1,197 @@
+/*default styling*/
+
+body {
+    background: #FFE81F;
+    font-family: "News Gothic";
+    color: #000900;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    overflow: scroll;
+    padding: 90px 40px 10vh 40px;
+}
+
+button {
+    font-family: "News Gothic";
+    color: #000900;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/*navigation bar styling*/
+
+.nav {
+    position: fixed;
+    width: 100%;
+    background-color: #FFE81F;
+}
+
+.APIWars {
+    text-decoration: none;
+    cursor: pointer;
+    font-family: "News Gothic";
+    color: #000900;
+    font-size: 1.2em;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 25%;
+    margin: auto;
+}
+
+.data,
+.user  {
+    position: relative;
+}
+
+.data ul,
+.user ul {
+    position: absolute;
+    left: 0;
+    transform: translate(-50%, 0);
+    background-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    opacity: 0;
+    /*visibility: hidden;*/
+    /*height: 0;*/
+}
+
+.data button:focus + ul,
+.user button:focus + ul {
+    opacity: 1;
+    /*visibility: visible;*/
+    /*height: auto;*/
+    pointer-events: all;
+}
+
+.dd {
+    cursor: s-resize;
+}
+
+/*main page styling*/
+
+.box {
+    height: 120px;
+    border-bottom: 1px solid #000900;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.boxIn {
+    text-decoration: none;
+    font-size: 2em;
+    color: #000900;
+}
+
+/*table styling*/
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, th, td {
+    border: 1px solid #000900;
+    text-align: center;
+    padding: 5px;
+}
+
+th {
+    height: 40px;
+    text-align: center;
+}
+
+.img {
+    margin-top: 10px;
+}
+
+.pag {
+    margin-bottom: 10px;
+}
+
+/*modals styling*/
+
+.modal-bg1,
+.modal-bg2,
+.modal-bg3,
+.modal-bg4 {
+    display: none;
+    position: fixed;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.modal1 {
+    display: none;
+    position: fixed;
+    background-color: #FFE81F;
+    padding: 50px;
+    width: 70%;
+    height: auto;
+    top: 90px;
+    left: 12.5%;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.modal2,
+.modal3,
+.modal4 {
+    display: none;
+    position: fixed;
+    background-color: #FFE81F;
+    padding: 50px;
+    width: 40%;
+    height: auto;
+    top: 90px;
+    left: 26%;
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.formIns {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-close1,
+.modal-close2,
+.modal-close3,
+.modal-close4 {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-weight: bold;
+}
+
+.modal-closeB {
+    position: absolute;
+    bottom: 15px;
+    right: 50px;
+    font-weight: bold;
+}
+
+.modTitle {
+    display: flex;
+}
+
+.submit,
+.submitLogIn,
+.submitReg {
+    margin-top: 5px;
+}

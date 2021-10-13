@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div id="planets">
+        <div class="title"><h2>Star Wars Universe {{ title }}</h2></div>
+        <div>
+        {% if last_page > 1 %}
+            <a {% if page_number == 1 %} href="{{ page }}/1" {% else %} href="{{ page }}/{{ page_number - 1 }}"
+            {% endif %}><button class="pag">Previous</button></a>
+            <a {% if page_number == last_page %} href="{{ page }}/{{ last_page }}" {% else %} href="{{ page }}/{{ page_number + 1 }}"
+            {% endif %}><button class="pag">Next</button></a>
+        {% endif %}
+        </div>
+        <table class="table">
+            <tr>{% for column_name in column_names %}<th>{{ column_name }}</th>{% endfor %}</tr>
+            {% for data in data_base %}<tr>
+                {% for content in contents %}
+                    <td>{{ data[content] }}</td>
+                {% endfor %}
+                    <td><button>Vote</button></td></tr>{% endfor %}
+        </table>
+    <img class="img" src="https://thoughtsfromthebench379373603.files.wordpress.com/2020/02/4010d5b4-21c8-4447-8a92-f8ae30aa65a2.jpeg" width="100%">
+    </div>
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+{% endblock %}

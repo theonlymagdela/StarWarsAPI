@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div id="planets">
+        <div class="title"><h2>Star Wars Universe {{ title }}</h2></div>
+        <div>
+            <a {% if page_number == 1 %} href="{{ page }}/1" {% else %} href="{{ page }}/{{ page_number - 1 }}"
+            {% endif %}><button class="pag">Previous</button></a>
+            <a {% if page_number == 6 %} href="{{ page }}/6" {% else %} href="{{ page }}/{{ page_number + 1 }}"
+            {% endif %}><button class="pag">Next</button></a>
+        </div>
+        <table class="table">
+            <tr>{% for column_name in column_names %}<th>{{ column_name }}</th>{% endfor %}</tr>
+            {% for data in data_base %}
+                    <tr>
+                        <td>{{ data.name }}</td>
+                        <td>
+                            {% if data.diameter == 'unknown' %}
+                                {{ data.diameter|int }}
+                            {% else %}
+                                {{ data.diameter|int }} km
+                            {% endif %}
+                        </td>
+                        <td>{{ data.climate }}</td>
+                        <td>{{ data.terrain }}</td>
+                        <td>
+                            {% if data.surface_water == 'unknown' %}
+                                {{ data.surface_water }}
+                            {% else %}
+                                {{ data.surface_water }} %
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if data.population == 'unknown' %}
+                                {{ data.population }}
+                            {% else %}
+                                {{ data.population }} people
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if data.residents|length == 1 %}
+                                <button class="resBtn" data-planet="{{ data.name[0:3] }}">{{ data.residents|length }} Resident</button>
+                            {% elif data.residents|length > 1 %}
+                                <button class="resBtn" data-planet="{{ data.name[0:3] }}">{{ data.residents|length }} Residents</button>
+                            {% else %}
+                            No known residents
+                            {% endif %}
+
+                            {#   residents modal window   #}
+                            <div class="modal-bg1" id="bg-{{ data.name[0:3] }}">
+                                <div class="modal1" id="{{ data.name[0:3] }}">
+                                    <p><h3 class="modTitle">Residents of {{ data.name }}</h3></p>
+                                    <table class="table">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Height</th>
+                                            <th>Mass</th>
+                                            <th>Hair color</th>
+                                            <th>Skin color</th>
+                                            <th>Eye color</th>
+                                            <th>Birth year</th>
+                                            <th>Gender</th>
+                                        </tr>
+                                        <tr>
+                                            {% for resident in residents %}
+                                                {% if  resident.homeworld == data.url %}
+                                                    <td><strong>{{ resident.name }}</strong></td>
+                                                    <td>{{ resident.height }}</td>
+                                                    <td>{{ resident.mass }}</td>
+                                                    <td>{{ resident.hair_color }}</td>
+                                                    <td>{{ resident.skin_color }}</td>
+                                                    <td>{{ resident.eye_color }}</td>
+                                                    <td>{{ resident.birth_year }}</td>
+                                                    <td>{{ resident.gender }}</td>
+                                        </tr>
+                                                {% endif %}
+                                            {% endfor %}
+                                    </table>
+                                    <span class="modal-close1"><button data-closed="{{ data.name[0:3] }}">x</button></span>
+                                    <span class="modal-closeB"><button data-closed="{{ data.name[0:3] }}">Close</button></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td><button>Vote</button></td>
+                    </tr>
+            {% endfor %}
+        </table>
+    <img class="img" src="https://thoughtsfromthebench379373603.files.wordpress.com/2020/02/4010d5b4-21c8-4447-8a92-f8ae30aa65a2.jpeg" width="100%">
+    </div>
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+{% endblock %}

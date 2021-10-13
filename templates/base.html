@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <title>{% block page_title %}APIWars{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    </head>
+    <body>
+    <header class="nav">
+
+        <div class="dropdown">
+
+            {#    dropdowns in navigation menu Data   #}
+            <div class="data">
+                <button class="dd">Data</button>
+                <ul>
+                    <li>&#709;</li>
+                    <li><a href="{{ url_for("films_all") }}"><button>Films</button></a></li>
+                    <li><a href="{{ url_for('residents_all', page_number=1) }}"><button>Residents</button></a></li>
+                    <li><a href="{{ url_for('planets_all', page_number=1) }}"><button>Planets</button></a></li>
+                    <li><a href="{{ url_for("still_fighting") }}"><button>Species</button></a></li>
+                    <li><a href="{{ url_for("still_fighting") }}"><button>Starships</button></a></li>
+                    <li><a href="{{ url_for("still_fighting") }}"><button>Vehicles</button></a></li>
+                    <li><a href="{{ url_for("still_fighting") }}"><button>Gallery</button></a></li>
+                </ul>
+            </div>
+
+            {#    main title   #}
+            <a class="APIWars" href="{{ url_for("main_page") }}"><h1>APIWars</h1></a>
+
+            {#    dropdowns in navigation menu User   #}
+            <div class="user">
+                <button class="dd">User</button>
+                    <ul>
+                        {% if 'id' in session %}
+                            <li>&#709;</li>
+                            <li><a href="{{ url_for('user_page', user_id=session['id']) }}"><button class="userLogged">User: {{ session['username'] }}</button></a></li>
+                            <li><a href="{{ url_for('logout_data_process') }}"><button class="outBtn" data-modal="outBtn">Log Out</button></a></li>
+                        {% else %}
+                            <li>&#709;</li>
+                            <li><button class="logBtn" data-modal="LogInDD">Log In</button></li>
+                            <li><button class="regBtn" data-modal="regDD">Register</button></li>
+                        {% endif %}
+                    </ul>
+            </div>
+        </div>
+
+        {#    modal registration   #}
+        <div class="modal-bg2" id="bg-regDD">
+            <div class="modal2" id="regDD">
+                <div class="formIns">
+                <form method="POST">
+                    <div class="title"><h2>Registration Form</h2></div>
+                    <div><label for="title">E-mail:</label><br>
+                    <input type="email" class="usernameReg" name="username" required></div>
+                    <div><label for="message">Password:</label><br>
+                    <input type="password" class="passwordReg" name="password" required></div>
+                    <div><label for="message">Name:</label><br>
+                    <input type="text" class="nameReg" name="name"><br></div>
+                    <div><label for="message">Surname:</label><br>
+                    <input type="text" class="surnameReg" name="surname"></div>
+                    <div><button type="submit" class="submitReg">Register</button></div>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="flash">
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                </form>
+                </div>
+                <span class="modal-close2"><button data-closed="regDD">x</button></span>
+            </div>
+        </div>
+
+        {#    modal log in   #}
+        <div class="modal-bg3" id="bg-LogInDD">
+            <div class="modal3" id="LogInDD">
+                <div class="formIns">
+                <form method="POST">
+                    <div class="title"><h2>Log In</h2></div>
+                    <div><label for="title">E-mail:</label><br>
+                    <input type="email" class="mailLog" name="username" required></div>
+                    <div><label for="message">Password:</label><br>
+                    <input type="password" class="passwordLog" name="password" required></div>
+                    <div><button type="submit" class="submitLogIn">Log In</button></div>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="flash">
+                                    {% for message in messages %}
+                                        {{ message }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                </form>
+                </div>
+                <span class="modal-close3"><button data-closed="LogInDD">x</button></span>
+            </div>
+        </div>
+
+        {#    modal log out   #}
+        <div class="modal-bg4" id="bg-outBtn">
+            <div class="modal4" id="outBtn">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="flash">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <span class="modal-close4"><button data-closed="outBtn">x</button></span>
+            </div>
+        </div>
+    </header>
+    <div class="body">{% block body %} {% endblock %}</div>
+    </body>
+</html>
