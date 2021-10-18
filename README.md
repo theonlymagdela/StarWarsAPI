@@ -1,5 +1,7 @@
 # API Wars
 
+Solo project from web module at coodecool shool.
+
 ## Story
 
 Because you are so awesome, a golden humanoid droid wants to meet you in the nearest Kantina....
@@ -118,27 +120,3 @@ sessions.
     - `planet_name` : varchar
     - `user_id` : integer, foreign_key
     - `submission_time` : datetime
-
-## Starting your project
-
-To start your project click [this link](https://journey.code.cool/v2/project/solo/blueprint/api-wars/python).
-
-## Background materials
-
-- <i class="far fa-exclamation"></i> [A web-framework for Python: Flask](https://learn.code.cool/full-stack/#/../pages/python/python-flask)
-- <i class="far fa-open_book"></i> [Flask documentation](http://flask.palletsprojects.com/) (the Quickstart gives a good overview)
-
-- <i class="far fa-exclamation"></i> [The last missing piece: API](https://learn.code.cool/full-stack/#/../pages/web/the-last-missing-piece-api.md)
-- <i class="far fa-open_book"></i> [RESTful](https://learn.code.cool/full-stack/#/../pages/web/restful.md)
-
-- <i class="far fa-exclamation"></i> [Creating DOM elements](https://learn.code.cool/full-stack/#/../pages/javascript/javascript-extending-the-dom.md)
-- <i class="far fa-open_book"></i> [Front-End Frameworks and Libraries (including Bootstrap)](https://learn.code.cool/full-stack/#/../pages/javascript/frontend-libraries-and-frameworks.md)
-
-- <i class="far fa-exclamation"></i> [JavaScript modules](https://learn.code.cool/full-stack/#/../pages/javascript/javascript-modules.md)
-
-- <i class="far fa-exclamation"></i> [Sessions](https://learn.code.cool/full-stack/#/../pages/web/authentication-sessions.md)
-- <i class="far fa-exclamation"></i> [Salted password hashing functions in Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/utils/#module-werkzeug.security)
-- <i class="far fa-open_book"></i> [Web storage mechanisms](https://learn.code.cool/full-stack/#/../pages/javascript/web-storage-mechanisms.md)
-- <i class="far fa-open_book"></i> [Database glossary](https://learn.code.cool/full-stack/#/../pages/sql/database-glossary)
-- <i class="far fa-candy-cane"></i> [Flask's jsonify function](https://flask.palletsprojects.com/en/1.1.x/api/#flask.json.jsonify)
-
